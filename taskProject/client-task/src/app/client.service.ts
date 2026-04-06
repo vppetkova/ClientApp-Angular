@@ -12,11 +12,12 @@ import { Transaction } from "./models/transaction";
 export class ClientService {
     constructor(private http: HttpClient) {}
 
-    getClient() {
-        return this.http.get<Client>('assets/client.json'); //handle errors
-    }
+    // getClient() {
+    //     return this.http.get<Client>('assets/client.json'); //handle errors
+    // }
 
     getTransactions() {
-        return this.http.get<Transaction[]>('assets/transactions.json'); //handle errors
+        
+        return this.http.get<Transaction[]>('transactions.json'); //handle errors
     }
 }

@@ -1,6 +1,10 @@
-<!-- <div class="transactions">
+<div class="transactions-container">
+    <div class="title">
+        <h2>Transactions</h2>
+    </div>
+
     <div class="filter">
-        <input type="text" placeholder="Filter by name or status">
+        <input type="text" placeholder="Filter by Name or Status" [(ngModel)]="filteredText">
     </div>
 
     <table>
@@ -19,20 +23,24 @@
             </tr>
         </thead>
         <tbody>
-            @for (t of filteredTransactions; track #index) {
+            @for (t of filteredTransactions; track t.id) {
                 <tr>
                     <td>{{ t.id }}</td>
-                    <td>{{ t.date }}</td>
+                    <td>{{ t.date | dateTransform }}</td>
                     <td>{{ t.name }}</td>
                     <td>{{ t.city }}</td>
                     <td>{{ t.bic }}</td>
                     <td>{{ t.bankCard }}</td>
-                    <td>{{ t.amount }}</td>
+                    <td>{{ t.amount | amount }}</td>
                     <td>{{ t.type }}</td>
                     <td [style.color]="getStatusColor(t.status)">{{ t.status }}</td>
-                    <td><button click="showModal(t)">Details</button></td>
+                    <!-- <td><button class="btn-dtl" (click)="onDetailsToggle(t)">Details</button></td> -->
                 </tr>
             }
         </tbody>
     </table>
-</div> -->
+
+    <!-- @if (showDetailsModal) {
+        <app-details-modal [transactionInfo]="openTransactionDetails" (closeModal)="onClose($event)"/>
+    } -->
+</div>

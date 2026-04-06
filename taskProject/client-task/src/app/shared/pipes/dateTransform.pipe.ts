@@ -11,6 +11,6 @@ export class DateTransformPipe implements PipeTransform {
             return '';
         }
 
-        return value.split('-'). reverse(). join(' . ');
+        return value.split('-'). reverse(). join('.');
     }
 } 

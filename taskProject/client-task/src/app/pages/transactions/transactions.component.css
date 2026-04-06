@@ -1,0 +1,84 @@
+.transactions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.title {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.title h2 {
+    letter-spacing: 3px;
+    color: rgb(179, 112, 40);
+    text-transform: uppercase;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.filter input {
+    width: 100%;
+    max-width: 300px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 3px solid rgb(43, 91, 131);
+}
+
+.filter input:hover {
+    width: 100%;
+    max-width: 300px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 3px solid rgb(179, 112, 40);
+}
+
+table {
+    width: 100%;
+    /* border-collapse: collapse; */
+}
+
+th, td {
+    padding: 8px 10px;
+    border: 2px solid rgb(68, 112, 148);
+    text-align: text;
+}
+
+th {
+    background: rgb(77, 127, 168);
+    color: white;
+}
+
+/* table th:last-child {
+    display: none;
+} */
+
+/* table td:last-child {
+    border: none;
+    text-align: center;
+} */
+
+table td {
+    border: none;
+    text-align: center;
+    border-bottom: 2px solid rgb(77, 127, 168);
+}
+
+button {
+    padding: 5px 10px;
+    border: 2px solid rgb(179, 112, 40);;
+    border-radius: 6px;
+    cursor: pointer;
+    background: white;
+    color: rgb(179, 112, 40);
+}
+
+button:hover {
+    background: rgb(179, 112, 40);
+    color: white;
+}
