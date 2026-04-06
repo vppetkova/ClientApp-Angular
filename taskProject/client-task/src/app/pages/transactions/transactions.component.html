@@ -1,1 +1,38 @@
-<h3>Transactions</h3>
+<!-- <div class="transactions">
+    <div class="filter">
+        <input type="text" placeholder="Filter by name or status">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Bic</th>
+                <th>Bank Card</th>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Show more</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (t of filteredTransactions; track #index) {
+                <tr>
+                    <td>{{ t.id }}</td>
+                    <td>{{ t.date }}</td>
+                    <td>{{ t.name }}</td>
+                    <td>{{ t.city }}</td>
+                    <td>{{ t.bic }}</td>
+                    <td>{{ t.bankCard }}</td>
+                    <td>{{ t.amount }}</td>
+                    <td>{{ t.type }}</td>
+                    <td [style.color]="getStatusColor(t.status)">{{ t.status }}</td>
+                    <td><button click="showModal(t)">Details</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div> -->
