@@ -34,13 +34,13 @@
                     <td>{{ t.amount | amount }}</td>
                     <td>{{ t.type }}</td>
                     <td [style.color]="getStatusColor(t.status)">{{ t.status }}</td>
-                    <!-- <td><button class="btn-dtl" (click)="onDetailsToggle(t)">Details</button></td> -->
+                    <td><button class="btn-dtl" (click)="onDetailsToggle(t)">Details</button></td>
                 </tr>
             }
         </tbody>
     </table>
 
-    <!-- @if (showDetailsModal) {
-        <app-details-modal [transactionInfo]="openTransactionDetails" (closeModal)="onClose($event)"/>
-    } -->
+    @if (showDetailsModal) {
+        <app-details-modal [transactionInfo]="openTransactionDetails" (closeModal)="closed()"/>
+    }
 </div>

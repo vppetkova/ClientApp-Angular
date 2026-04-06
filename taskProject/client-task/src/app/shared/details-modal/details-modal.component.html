@@ -1,0 +1,23 @@
+<div class="details-modal-container" (click)="onClose()">
+    <div class="details-modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+            <h3>Transaction Details</h3>
+            <button class="close-btn" (click)="onClose()">X</button>
+
+        </div>
+
+        @if (transactionInfo){
+            <div class="transaction-container">
+                <p><strong>ID:</strong>{{ transactionInfo.id }}</p>
+                <p><strong>Date:</strong>{{ transactionInfo.date | dateTransform }}</p>
+                <p><strong>Name:</strong>{{ transactionInfo.name }}</p>
+                <p><strong>City:</strong>{{ transactionInfo.city }}</p>
+                <p><strong>Bic:</strong>{{ transactionInfo.bic }}</p>
+                <p><strong>Bank Card:</strong>{{ transactionInfo.bankCard }}</p>
+                <p><strong>Amount:</strong>{{ transactionInfo.amount | amount }}</p>
+                <p><strong>Type:</strong>{{ transactionInfo.type }}</p>
+                <p [style.color]="getStatusColor(transactionInfo.status)"><strong>Status:</strong>{{ transactionInfo.status }}</p>
+            </div>
+        }
+    </div>
+</div>

@@ -4,15 +4,16 @@ import { ClientService } from '../../client.service';
 import { AmountPipe } from '../../shared/pipes/amount.pipe';
 import { DateTransformPipe } from '../../shared/pipes/dateTransform.pipe';
 import { FormsModule } from '@angular/forms';
+import { DetailsModalComponent } from '../../shared/details-modal/details-modal.component';
 
 @Component({
   selector: 'app-transactions',
   standalone: true,
-  imports: [AmountPipe, DateTransformPipe, FormsModule],
+  imports: [AmountPipe, DateTransformPipe, FormsModule, DetailsModalComponent],
   templateUrl: './transactions.component.html',
   styleUrl: './transactions.component.css'
 })
-// export class TransactionsComponent {
+
 export class TransactionsComponent implements OnInit {
   transactions: Transaction[] | null = [];
   filteredText: string = '';
@@ -33,18 +34,14 @@ export class TransactionsComponent implements OnInit {
       t.status.toLowerCase().includes(this.filteredText.toLowerCase())) 
   }
 
-  // showModal(t: Transaction) {
-  //   this.openTransactionDetails = t;
-  // }
+  closed() {
+    this.showDetailsModal = !this.showDetailsModal;
+  }
 
-  // closeModal() {
-  //   this.openTransactionDetails = null;
-  // }
-
-  // onDetailsToggle(t: Transaction): void {
-  //   this.showDetailsModal = !this.showDetailsModal;
-  //   this.openTransactionDetails = t;
-  // }
+  onDetailsToggle(t: Transaction): void {
+    this.showDetailsModal = !this.showDetailsModal;
+    this.openTransactionDetails = t;
+  }
 
   getStatusColor(status: string) {
     if (status === 'Completed') {
