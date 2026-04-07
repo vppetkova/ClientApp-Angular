@@ -12,3 +12,9 @@ export interface Transaction {
     type: TransactionType;
     status: TransactionStatus;
 }
+
+// I kept the original order because it reflects a logical grouping of transaction information:
+// the identifiers first (id, date), then recipient info (name, city, bic, bankCard), and finally 
+// transaction details (amount, type, status). This way, the data is structured consistently and is
+// easy to read. If we wanted to prioritize user-relevent info, we could reorder fields like date,
+// name, and amount to highlight the most important details.

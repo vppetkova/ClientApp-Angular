@@ -1,5 +1,5 @@
 .container {
-    background: linear-gradient(rgb(48, 108, 156), rgb(210, 223, 221));
+    background: linear-gradient(rgb(58, 123, 175), rgb(210, 223, 221));
 }
 
 .title {
@@ -10,7 +10,7 @@
 .title h2 {
     padding-top: 30px;
     letter-spacing: 3px;
-    color: white;
+    color: rgb(241, 173, 100);
     text-transform: uppercase;
 }
 
@@ -21,10 +21,21 @@
     border-radius: 12px;
 }
 
+.form-container h3 {
+    text-align: center;
+    font-size: 20px;
+    margin: 15px 5px;
+    color: white;
+    border-bottom: 3px solid white;
+    padding-bottom: 10px;
+    margin-top: 45px;
+}
+
 .form-group {
     margin-bottom: 16px;
     display: flex;
     flex-direction: column;
+    gap: 3px;
 }
 
 label {
@@ -47,12 +58,12 @@ input:hover {
 }
 
 .btn-save {
-    margin-top: 5px;
+    margin-top: 42px;
     text-align: center;
 }
 
 button {
-    padding: 10px 250px;
+    padding: 10px 255px;
     cursor: pointer;
     background-color: white;
     border: 2px solid rgb(179, 112, 40);
@@ -71,6 +82,20 @@ button:disabled {
     cursor: not-allowed;
 }
 
+.err-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.err-container p {
+    font-size: 25px;
+    color: rgb(52, 106, 150);
+    font-weight: bold;
+}
+
 .err span {
-    color: rgb(126, 29, 29);
+    color: rgb(160, 27, 27);
 }

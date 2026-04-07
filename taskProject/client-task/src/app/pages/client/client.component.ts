@@ -2,41 +2,44 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../client.service';
 import { Client, FieldConfig } from '../../models/client';
 import { ClientFormConfig } from '../../config';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { LoaderComponent } from '../../shared/loader/loader.component';
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, LoaderComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
 export class ClientComponent implements OnInit {
   fields: FieldConfig[] = ClientFormConfig;
   clientData: Client = {} as Client;
-  // hasSuccessMessage: boolean = false;
+  errorMessage: string | null = null;
+  isReady: boolean = false;
 
   constructor(private clientService: ClientService) {}
-  
+
     ngOnInit(): void {
-      this.clientService.getClient().subscribe((data) => {
-        this.clientData = data;
+      this.clientService.getClient().subscribe({ 
+        next: (data) => {
+          this.clientData = data;
+          this.isReady = true;
+        }, 
+        error: (err) => {
+          this.errorMessage = err.message;
+          this.isReady = true;
+        }
       });
     }
 
-    // get sections(): string[] {
-    //   return ['Personal Info', 'Contact Info', 'Address', 'Bank Info'];
-    // }
+    get sections(): string[] {
+      return ['Personal Info', 'Contact Info', 'Address', 'Bank Info'];
+    }
 
-
-    // fieldsBySection(section: string): FieldConfig[] {
-    //   return this.formConfig.filter(f => f.section === section);
-    // }
-
-    onSaveDate(form: any) {
+    onSaveDate(form: NgForm) {
       if (form.valid) {
         console.log('Form updated successfully', this.clientData);
-        // this.hasSuccessMessage = true;
       } else {
         console.log('Form invalid');
       }

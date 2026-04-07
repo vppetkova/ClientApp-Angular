@@ -1,125 +1,61 @@
+<div class="client-content">
+@if (!isReady) {
+    <div class="loading-container">
+        <app-loader />
+    </div>
+} @else if (errorMessage) {
+    <div class="err-container">
+        <p>{{ errorMessage }}</p>
+        <p>Please try again later!</p>
+    </div>
+} @else {
+
 <div class="container">
     <div class="title">
         <h2>Client</h2>
     </div>
 <div class="form-container">
     <form #clientForm="ngForm" (ngSubmit)="onSaveDate(clientForm)">
-        <!-- <div class="section-container">
-            @for (section of sections; track $index) {
-                <h3>{{ section }}</h3>
-            }
-        </div> -->
+        @for (section of sections; track $index) {
+            <h3>{{ section }}</h3>
 
-        <!-- <div class="input-container"> -->
             @for (field of fields; track $index) {
-                <!-- @if(section === field.section) { -->
-                <div class="form-group">
-                <div class="label-content">
-                    @if (field.required) {
-                        <span>*</span>
-                    }
-                    <label>{{ field.label }}</label>
-                </div>
+                @if(section === field.section) {
+                    <div class="form-group">
+                        <div class="label-content">
+                            @if (field.required) {
+                                <span>*</span>
+                            }
+                            <label>{{ field.label }}</label>
+                        </div>
 
-                <input  
-                        [name]="field.name" 
-                        [(ngModel)]="clientData[field.name]" 
-                        [type]="field.type" 
-                        [readonly]="field.readonly" 
-                        required="{{ field.required ? true : null }}"
-                        ngModel
-                        #ctrl="ngModel"
-                         />
+                        <input  
+                            [name]="field.name" 
+                            [(ngModel)]="clientData[field.name]" 
+                            [type]="field.type" 
+                            [readonly]="field.readonly" 
+                            required="{{ field.required ? true : null }}"
+                            ngModel
+                            #ctrl="ngModel"
+                        />
 
-                          @if (ctrl.touched) {
+                        @if (ctrl.touched) {
                             <div class="err">
                                 @if (ctrl.errors?.['required']) {
                                     <span>{{ field.label }} is required</span>
-                                } 
-                            
-                                <!-- @if (ctrl.errors?.['minLength']) {
-                                    <span>Mimimum length is {{ field.minLength }}</span>
-                                } 
-                                
-                                    @if (ctrl.errors?.['email']) {
-                                        <span>Invalid email</span>
-                                    }  -->
-
-                                
+                                }   
                             </div>
                         }
-                         <!-- {{ ctrl.invalid }} -->
-                        <!-- @if (field.required) {
-                            <input  
-                           [name]="field.name" 
-                           [(ngModel)]="clientData[field.name]" 
-                           [type]="field.type" 
-                           [readonly]="field.readonly" 
-                           required
-                           ngModel
-                           #ctrl="ngModel"
-
-                           />
-                            @if (ctrl.touched) {
-                            <div class="err">
-                                @if (ctrl.errors?.['required']) {
-                                    <span>{{ field.label }} is required</span>
-                                } 
-                            </div>
-                        } @else {
-                            <input
-                            [name]="field.name" 
-                           [(ngModel)]="clientData[field.name]" 
-                           [type]="field.type" 
-                           [readonly]="field.readonly" 
-                           
-                           
-                           #ctrl="ngModel"
-
-                           />
-                        } -->
-
-                       
-                        
-
-                        <!-- <input  
-                        [name]="field.name" 
-                        [(ngModel)]="clientData[field.name]" 
-                        [type]="field.type" 
-                        [readonly]="field.readonly" 
-                        [required]="field.required" || null
-                        [minLength]="field.minLength" || null
-                        [pattern]="field.pattern" |
-                        #ctrl="ngModel"
-                         /> -->
-                </div>
+                    </div>
+                }
             }
-        <!-- </div> -->
-                    <!-- <p>{{ clientForm.valid }}</p> -->
-                    <!-- <p>{{ clientForm.controls | json }}</p> -->
-                    <!-- <div class="validations"> -->
-                        <!-- @if (ctrl.touched) { -->
-                            <!-- <div class="err"> -->
-                                <!-- @if (ctrl.errors?.['required']) {
-                                    <span>{{ field.label }} is required</span>
-                                } -->
-
-                                <!-- @if (ctrl.errors?.['minLength']) { -->
-                                    <!-- <span>Minimum length is {{ field.minLength }}</span> -->
-                                <!-- } -->
-                            <!-- </div> -->
-                        
-                    <!-- </div> -->
-            
+        }   
 
         <div class="btn-save">
             <button [disabled]="clientForm.invalid">Save</button>
         </div>
-        <!-- @if (hasSuccessMessage) {
-            <div class="suc-msg">
-                <span>Form updated successfully! See the message in the console.</span>
-            </div>
-        } -->
     </form>
 </div>
+</div>
+}
 </div>

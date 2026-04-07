@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Client } from "./models/client";
 // import { catchError } from 'rxjs';
 import { Transaction } from "./models/transaction";
+import { catchError, throwError } from "rxjs";
 
 
 @Injectable({
@@ -13,7 +14,12 @@ export class ClientService {
     constructor(private http: HttpClient) {}
 
     getClient() {
-        return this.http.get<Client>('client.json'); //handle errors
+        return this.http.get<Client>('client.json').pipe(
+            catchError(error => {
+                console.log('Error in client requiest', error);
+                return throwError(() => new Error('Failed to load client data'));
+            })
+        ); 
     }
 
     getTransactions() {
