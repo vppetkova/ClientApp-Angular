@@ -6,7 +6,8 @@ export const ClientFormConfig: FieldConfig[] = [
     { name: 'secondName', label: 'Second Name', type: 'text', readonly: false, required: true, section: 'Personal Info'},
 
     //Contact Info
-    { name: 'email', label: 'Email', type: 'email', readonly: false, required: true, pattern: "\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+", section: 'Contact Info'},
+    // { name: 'email', label: 'Email', type: 'email', readonly: false, required: true, pattern: "\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+", section: 'Contact Info'},
+    { name: 'email', label: 'Email', type: 'email', readonly: false, required: true, section: 'Contact Info'},
     { name: 'phone', label: 'Phone', type: 'tel', readonly: false, required: true, minLength: 10, section: 'Contact Info'},
 
     //Address

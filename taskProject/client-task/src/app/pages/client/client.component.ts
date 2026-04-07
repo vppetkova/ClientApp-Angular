@@ -12,27 +12,33 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './client.component.css'
 })
 export class ClientComponent implements OnInit {
-  clientDate: Client | null = null;
+  fields: FieldConfig[] = ClientFormConfig;
+  clientData: Client = {} as Client;
+  // hasSuccessMessage: boolean = false;
 
   constructor(private clientService: ClientService) {}
   
     ngOnInit(): void {
       this.clientService.getClient().subscribe((data) => {
-        this.clientDate = data;
+        this.clientData = data;
       });
     }
 
-    get sections(): string[] {
-      return ['Personal Info', 'Contact Info', 'Address', 'Bank Info'];
-    }
+    // get sections(): string[] {
+    //   return ['Personal Info', 'Contact Info', 'Address', 'Bank Info'];
+    // }
 
-    formConfig: FieldConfig[] = ClientFormConfig;
 
-    fieldsBySection(section: string): FieldConfig[] {
-      return this.formConfig.filter(f => f.section === section);
-    }
+    // fieldsBySection(section: string): FieldConfig[] {
+    //   return this.formConfig.filter(f => f.section === section);
+    // }
 
-    onSaveDate() {
-      console.log('Successfully saved date');
+    onSaveDate(form: any) {
+      if (form.valid) {
+        console.log('Form updated successfully', this.clientData);
+        // this.hasSuccessMessage = true;
+      } else {
+        console.log('Form invalid');
+      }
     }
 } 

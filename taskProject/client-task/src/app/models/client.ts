@@ -21,6 +21,6 @@ export interface FieldConfig {
     readonly: boolean;
     required?: boolean;
     minLength?: number;
-    pattern?: string;
+    //email?: boolean;
     section: string;  //to group related fields logically, making the form more structured and easier to read and maintain
 }
