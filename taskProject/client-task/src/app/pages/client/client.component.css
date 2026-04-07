@@ -65,7 +65,7 @@ input:hover {
 button {
     padding: 10px 255px;
     cursor: pointer;
-    background-color: white;
+    background-color: rgb(208, 171, 133);
     border: 2px solid rgb(179, 112, 40);
     border-radius: 8px;
     font-size: 18px; 

@@ -33,6 +33,7 @@ export class ClientComponent implements OnInit {
       });
     }
 
+    //Using to group fields logically for better UX
     get sections(): string[] {
       return ['Personal Info', 'Contact Info', 'Address', 'Bank Info'];
     }

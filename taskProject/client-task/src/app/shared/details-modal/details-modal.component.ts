@@ -11,9 +11,9 @@ import { DateTransformPipe } from '../pipes/dateTransform.pipe';
   styleUrl: './details-modal.component.css'
 })
 export class DetailsModalComponent {
-    @Input() transactionInfo: Transaction | null = null;
+    @Input() transactionInfo: Transaction | null = null;    //Receives data from the Transaction component
 
-    @Output() closeModal = new EventEmitter<void>();
+    @Output() closeModal = new EventEmitter<void>();        //Handles closing the modal
 
     onClose (): void {
         this.closeModal.emit();

@@ -23,7 +23,11 @@ export class ClientService {
     }
 
     getTransactions() {
-        
-        return this.http.get<Transaction[]>('transactions.json'); //handle errors
+        return this.http.get<Transaction[]>('transactions.json').pipe(
+            catchError(error => {
+                console.log('Error in transactions request', error);
+                return throwError(() => new Error('Failed to load transactions data'))
+            })
+        );
     }
 }

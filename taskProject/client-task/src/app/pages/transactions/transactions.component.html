@@ -1,3 +1,15 @@
+<div class="transc-content">
+@if (!isReady) {
+    <div class="loading-container">
+        <app-loader />
+    </div>
+} @else if (errorMessage) {
+    <div class="err-container">
+        <p>{{ errorMessage }}</p>
+        <p>Please try again later!</p>
+    </div>
+} @else {
+
 <div class="transactions-container">
     <div class="title">
         <h2>Transactions</h2>
@@ -43,4 +55,6 @@
     @if (showDetailsModal) {
         <app-details-modal [transactionInfo]="openTransactionDetails" (closeModal)="closed()"/>
     }
+</div>
+}
 </div>

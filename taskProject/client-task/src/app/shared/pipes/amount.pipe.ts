@@ -26,3 +26,7 @@ export class AmountPipe implements PipeTransform {
     //     return value?.toLocaleString('bg-BG', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' BGN'; 
     // }
 }
+
+// Implemented two custom amount pipes for experimentation:
+// The pipe with slice method is currently active. 
+// Keeping toLocaleString version in comments for reference
